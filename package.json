@@ -1,0 +1,22 @@
+{
+  "name": "npm-github",
+  "version": "1.0.0",
+  "description": "use npm and github to write a lib ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longlongago2/npm-github.git"
+  },
+  "keywords": [
+    "doc"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/longlongago2/npm-github/issues"
+  },
+  "homepage": "https://github.com/longlongago2/npm-github#readme"
+}
