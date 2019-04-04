@@ -2,6 +2,8 @@
 
 依托 github+npm 开发和维护前端library模块
 
+> 什么是lib模块：node_modules
+
 ## 背景介绍
 
 ## 名词介绍
