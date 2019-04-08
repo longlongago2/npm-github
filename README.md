@@ -5,12 +5,23 @@
 ## 背景介绍
 
 > 前端模块化开发大潮：<br><br>
+> 衍生规范：<a href="#1">CommonJs(node.js)</a> -> <a href="#2">AMD(require.js)</a> -> <a href="#3">CMD(seaJS)</a> -> <a href="#4">UMD(兼容 CommonJs, AMD, var)</a><br><br>
 
-> 衍生规范：CommonJs(node.js) -> AMD(require.js) -> CMD(seaJS) -> UMD(兼容CommonJs, AMD, var)<br><br>
-CommonJs规范： 它是服务端模块化加载规范，由Node推广使用，只能依赖node环境执行。纳尼？？？这么好的东西，是不是就对传统前端开发来说没用了呢？其实，webpack就是使用这个规范去打包依赖，因为 webpack 本身就是依赖 node 环境开发出来的服务端预处理工具。标志性语法：require('module-name') / module.exports，这个 require 和 AMD 的 require 不同，下面会讲到！<br><br>
-requireJs(AMD规范)：如果说CommonJs的出现解决了服务端模块化的问题，那么require.js(AMD规范)的出现就是主要解决客户端模块化的问题。（？？？解释上面留的疑问）那么它与 CommonJs 的 require 具体又有什么关系呢？应该说他们什么关系都没有，唯一可能的关系就是传统前端工程师看见 node 工程师可以使用 commonjs 模块化加载眼红，大家都用js，为什么你行，我不行，所以就发明出来一种适合客户端模块化加载的规范，CommonJs依赖的是 node 环境的加载，而requireJs就是纯客户端浏览器加载的一种规范，它可以直接在浏览器执行，而commonjs就不行（但是可以用于webpack预处理工具打包构建之后，就可以在浏览器运行啦）。<br><br>
-seaJs(CMD规范)：结合了 CommonJs 的理念和 AMD 的原理的客户端模块化加载规范，CMD 特别就在于，体现了 CommonJs 按需加载的理念，摒弃了AMD的依赖前置，这是一种过渡态，用的不多，具体怎么体现的语法可以自己了解。<br><br>
-UMD规范：首先UMD是什么，中文解释就是通用模块定义，兼容AMD，CommonJS和全局变量，一统天下。使用UMD规范之后，各种规范自动向下兼容。简单来说，良心的lib都应该用umd规范发布，这样，node环境；模块化环境（webapck等预处理工具、requireJs等）；传统CDN环境（全局变量），就都可以使用啦。那么这么好的东西又该怎么玩呢？webpack针对 lib模式（<a href="#1">注1</a>） 打包时提供了这个选择，以下是原文：
+<a name="1">
+CommonJs规范： 它是服务端模块化加载规范，由Node推广使用，只能依赖node环境执行。纳尼？？？这么好的东西，是不是就对传统前端开发来说没用了呢？其实，webpack就是使用这个规范去打包依赖，因为 webpack 本身就是依赖 node 环境开发出来的服务端预处理工具。标志性语法：require('module-name') / module.exports，这个 require 和 AMD 的 require 不同，下面会讲到！
+</a><br><br>
+
+<a name="2">
+requireJs(AMD 规范)：如果说 CommonJs 的出现解决了服务端模块化的问题，那么 require.js(AMD 规范)的出现就是主要解决客户端模块化的问题。（？？？解释上面留的疑问）那么它与 CommonJs 的 require 具体又有什么关系呢？应该说他们什么关系都没有，唯一可能的关系就是传统前端工程师看见 node 工程师可以使用 commonjs 模块化加载眼红，大家都用 js，为什么你行，我不行，所以就发明出来一种适合客户端模块化加载的规范，CommonJs 依赖的是 node 环境的加载，而 requireJs 就是纯客户端浏览器加载的一种规范，它可以直接在浏览器执行，而 commonjs 就不行（但是可以用于 webpack 预处理工具打包构建之后，就可以在浏览器运行啦）。
+</a><br><br>
+
+<a name="3">
+seaJs(CMD 规范)：结合了 CommonJs 的理念和 AMD 的原理的客户端模块化加载规范，CMD 特别就在于，体现了 CommonJs 按需加载的理念，摒弃了 AMD 的依赖前置，这是一种过渡态，用的不多，具体怎么体现的语法可以自己了解。
+</a><br><br>
+
+<a name="4">
+UMD 规范：首先 UMD 是什么，中文解释就是通用模块定义，兼容 AMD，CommonJS 和全局变量，一统天下。使用 UMD 规范之后，各种规范自动向下兼容。简单来说，良心的 lib 都应该用 umd 规范发布，这样，node 环境；模块化环境（webapck 等预处理工具、requireJs 等）；传统 CDN 环境（全局变量），就都可以使用啦。那么这么好的东西又该怎么玩呢？webpack 针对 lib 模式（webpack 打包有两种模式，runtime 模式和 library 模式：我们平常使用的生产环境的打包，就是 runtime 模式，但是 webpack 还可以针对模块化进行打包，即 lib 模式） 打包时提供了这个选择，以下是原文：
+
 ```
 output.libraryTarget
 Which format to export the library:
@@ -21,9 +32,8 @@ Which format to export the library:
 "amd" - Export to AMD (optionally named)
 "umd" - Export to AMD, CommonJS2 or as property in root
 ```
-<a name="1">
-注1：webpack打包有两种模式，runtime 模式和 library 模式：我们平常使用的生产环境的打包，就是runtime 模式，但是 webpack 还可以针对模块化进行打包，即lib模式
-</a>
+
+</a><br><br>
 
 ## 名词介绍
 
