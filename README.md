@@ -175,13 +175,13 @@ _注：这是旧版，被微软收购后新版已改版_
    (1) 直接换名字；<br>
    (2) 创建一个带作用域的包名（推荐），例如：@webpack-cli/init（组织），@longlongago2/rm_calendar（用户名） ，创建带作用域的包名 cli 命令如下：_
 
-`npm init --scope=@my-username`
+   `npm init --scope=@my-username`
 
-or
+   or
 
-`npm init --scope=@my-org`
+   `npm init --scope=@my-org`
 
-_3. git repository 一般写你的 git 代码托管地址，你如果在 github 创建的远程仓库，这里会自动链接到你的代码库，在 npm 搜索中体现_
+3. _git repository 一般写你的 git 代码托管地址，你如果在 github 创建的远程仓库，这里会自动链接到你的代码库，在 npm 搜索中体现_
 
 ![1-2-1](./assets/1-2-1.png)
 
