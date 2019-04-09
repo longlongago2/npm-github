@@ -269,30 +269,23 @@ markdown：如何安装、使用代码示例、详细 api，还可以加效果�
 
   - 默认模版
 
-    在代码库新建目录：.github
+    将在代码库新建目录：.github
 
     在 .github 目录下添加 ISSUE_TEMPLATE.md 文件作为 issues 默认模版。当创建 issue 时，若未建立多模版或选择了 Open a regular issue 时，系统会引用该模版。
 
   - 多模版
 
-    在代码库新建目录：.github/ISSUE_TEMPLATE
+    将在代码库新建目录：.github/ISSUE_TEMPLATE
 
     该目录下可添加多个 .md 文件作为 issues 模版。当创建 issue 时，系统会展示这些模版供选择。
 
-    .md 文件参考格式如下：
-
-    ```
-    ---
-    name: 该模版的名称（创建 issue 时，系统展示模版列表时会显示该名称）
-    about: 该模版的描述（创建 issue 时，系统展示模版列表时会显示该描述）
-    ---
-
-    正文内容……
-    ```
-
-  - 注意事项
+  - 自定义模板
 
      issues 的默认模版和多模版可同时存在。关于 issues 模版的描述可详见帮助文档：https://help.github.com/articles/manually-creating-a-single-issue-template-for-your-repository/
+
+  - 如何创建模板
+
+    https://help.github.com/en/articles/creating-issue-templates-for-your-repository
 
 ### 2. 徽章
 
@@ -342,4 +335,4 @@ Codacy 编程代码自动审查服务平台，可以帮我们分析存在的问�
 
 ### 4. 内网代替
 
-snpm+gitlab，流程和规范是一样的
+snpm+gitlab，流程和规范大部分是一样的
