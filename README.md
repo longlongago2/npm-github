@@ -110,7 +110,7 @@ Which format to export the library:
 
 ### 7. Jest
 
-`jest:` Jest是 Facebook 的一套开源的 JavaScript 测试框架， 它自动集成了断言、JSDom、覆盖率报告等开发者所需要的所有测试工具，是一款几乎零配置的测试框架。。 [官网](https://jestjs.io/zh-Hans/) / [代码示例](https://github.com/longlongago2/react-native-sqlite-helper/blob/master/_tests_/sqliteHelper.test.js)，其他常用测试框架还有[Mocha](https://mochajs.org/)
+`jest:` Jest 是 Facebook 的一套开源的 JavaScript 测试框架， 它自动集成了断言、JSDom、覆盖率报告等开发者所需要的所有测试工具，是一款几乎零配置的测试框架。。 [官网](https://jestjs.io/zh-Hans/) / [代码示例](https://github.com/longlongago2/react-native-sqlite-helper/blob/master/_tests_/sqliteHelper.test.js)，其他常用测试框架还有[Mocha](https://mochajs.org/)
 
 - 使用场景：
 
@@ -168,12 +168,12 @@ _注：这是旧版，被微软收购后新版已改版_
 
 注意：
 
-1. _entry point 非常重要，这是lib作为 node_modules 模块化文件的入口_
+1. _entry point 非常重要，这是 lib 作为 node_modules 模块化文件的入口_
 
 2. _package name 有可能会被占用，如果您的包名已经被占用则无法发布。<br>
-有两种方法规避：<br>
-(1) 直接换名字；<br>
-(2) 创建一个带作用域的包名（推荐），例如：@webpack-cli/init（组织），@longlongago2/rm_calendar（用户名） ，创建带作用域的包名 cli 命令如下：_
+   有两种方法规避：<br>
+   (1) 直接换名字；<br>
+   (2) 创建一个带作用域的包名（推荐），例如：@webpack-cli/init（组织），@longlongago2/rm_calendar（用户名） ，创建带作用域的包名 cli 命令如下：_
 
 `npm init --scope=@my-username`
 
@@ -181,7 +181,7 @@ or
 
 `npm init --scope=@my-org`
 
-_3. git repository 一般写你的git代码托管地址，你如果在github创建的远程仓库，这里会自动链接到你的代码库，在npm搜索中体现_
+_3. git repository 一般写你的 git 代码托管地址，你如果在 github 创建的远程仓库，这里会自动链接到你的代码库，在 npm 搜索中体现_
 
 ![1-2-1](./assets/1-2-1.png)
 
@@ -197,7 +197,7 @@ webpack 配置注意：
 
 1. _[官网：如何创建一个创建一个 library 配置](https://webpack.docschina.org/guides/author-libraries/)_
 
-2. _关于 lib 打包配置注意：lib 组件中的依赖一定不要打包，否则可能带来严重问题。(使用[webpack externals](https://webpack.docschina.org/configuration/externals/)将依赖外部化。npm 会自动下载lib模块中的依赖，webpack会按照lib依赖关系自行打包，所以不必在lib阶段直接将依赖打包进去，否则如果用户也使用了你lib中的依赖，会造成重复打包，可能造成不可预测的报错)_
+2. _关于 lib 打包配置注意：lib 组件中的依赖一定不要打包，否则可能带来严重问题。(使用[webpack externals](https://webpack.docschina.org/configuration/externals/)将依赖外部化。npm 会自动下载 lib 模块中的依赖，webpack 会按照 lib 依赖关系自行打包，所以不必在 lib 阶段直接将依赖打包进去，否则如果用户也使用了你 lib 中的依赖，会造成重复打包，可能造成不可预测的报错)_
 
 ### <a name="1-4">4. 组件开发</a>
 
@@ -221,21 +221,21 @@ jest
 
 `jest --init`
 
-回答一系列问题，创建jest.config.js
+回答一系列问题，创建 jest.config.js
 
 ![1-5](./assets/1-5.png)
 
 ### <a name="1-6">6. 配置声明文件</a>
 
-.d.ts: 一般和js文件同名同级，或者发布到@types，一般IDE会自动识别并智能提示
+.d.ts: 一般和 js 文件同名同级，或者发布到@types，一般 IDE 会自动识别并智能提示
 
-1. 自己定义的库声明文件一般和原始js文件同名同级：例如jquery.js 对应的就是 jquery.d.ts，放在同一级目录。
+1. 自己定义的库声明文件一般和原始 js 文件同名同级：例如 jquery.js 对应的就是 jquery.d.ts，放在同一级目录。
 
-2. 强大的第三方库一般会发布到[@types组织](http://definitelytyped.org/)中，以供使用者单独下载：例如 npm install @types/jquery -save 然后你就发现你项目里面多了个node_modules/@types/jquery文件夹。
+2. 强大的第三方库一般会发布到[@types 组织](http://definitelytyped.org/)中，以供使用者单独下载：例如 npm install @types/jquery -save 然后你就发现你项目里面多了个 node_modules/@types/jquery 文件夹。
 
 ### <a name="1-7">7. 撰写 readme 文档</a>
 
-markdown：如何安装、使用代码示例、详细api，还可以加效果图，FAQ，Changelog等等
+markdown：如何安装、使用代码示例、详细 api，还可以加效果图，FAQ，Changelog 等等
 
 ### <a name="1-8">8. 打包发布</a>
 
@@ -243,7 +243,7 @@ markdown：如何安装、使用代码示例、详细api，还可以加效果图
 
 注意：
 
-1. 发布之前得先登录npm账号
+1. 发布之前得先登录 npm 账号
 
 2. 如果您是再维护新版本，新版本的 package.json version 版本号一定要更改，否则发布不成功!
 
@@ -253,7 +253,48 @@ markdown：如何安装、使用代码示例、详细api，还可以加效果图
 
 ## 其他
 
-### 1. 徽章
+### 1. Issues
+
+- 寻找答案：
+
+  - github 不仅是一个代码托管平台，它更是一个社区，issues 就可以看做订阅者的帖子，里面会有各种 bug 的解决方案和很多开发者的创意和想法等等，遇到 bug 首先应该去搜索 issues，而不是去百度，实在解决不了还可以对开发者提问。
+
+- 提问：
+
+  - 一般有影响力的框架（vue,react...）都会有专门的维护者照看 issues 并进行日常解答和 bug 收集。遇到 bug 或疑问，我们一定要按照维护者提供的提问模板进行有效提问，否则可能会被强制关闭。
+
+- 处理：
+
+  - 对于库的管理者来说，为了有效收集 bug 和快速定位问题，我们可以设置 issues 提问模板。
+
+  - 默认模版
+
+    在代码库新建目录：.github
+
+    在 .github 目录下添加 ISSUE_TEMPLATE.md 文件作为 issues 默认模版。当创建 issue 时，若未建立多模版或选择了 Open a regular issue 时，系统会引用该模版。
+
+  - 多模版
+
+    在代码库新建目录：.github/ISSUE_TEMPLATE
+
+    该目录下可添加多个 .md 文件作为 issues 模版。当创建 issue 时，系统会展示这些模版供选择。
+
+    .md 文件参考格式如下：
+
+    ```
+    ---
+    name: 该模版的名称（创建 issue 时，系统展示模版列表时会显示该名称）
+    about: 该模版的描述（创建 issue 时，系统展示模版列表时会显示该描述）
+    ---
+
+    正文内容……
+    ```
+
+  - 注意事项
+
+     issues 的默认模版和多模版可同时存在。关于 issues 模版的描述可详见帮助文档：https://help.github.com/articles/manually-creating-a-single-issue-template-for-your-repository/
+
+### 2. 徽章
 
 如果你有逛 GitHub 的习惯，应该就已经发现，许多知名的开源项目的 README 上都有着花花绿绿的各式徽章。比如说这个：
 
@@ -293,7 +334,7 @@ Codacy 编程代码自动审查服务平台，可以帮我们分析存在的问�
 
 ... 还有很多，喜欢的自己探索自己探索
 
-### 2. 开源许可证
+### 3. 开源许可证
 
 常用的几种证书
 
