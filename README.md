@@ -267,25 +267,27 @@ markdown：如何安装、使用代码示例、详细 api，还可以加效果�
 
   - 对于库的管理者来说，为了有效收集 bug 和快速定位问题，我们可以设置 issues 提问模板。
 
-  - 默认模版
+    - 默认模版
 
-    将在代码库新建目录：.github
+      将在代码库新建目录：.github
 
-    在 .github 目录下添加 ISSUE_TEMPLATE.md 文件作为 issues 默认模版。当创建 issue 时，若未建立多模版或选择了 Open a regular issue 时，系统会引用该模版。
+      在 .github 目录下添加 ISSUE_TEMPLATE.md 文件作为 issues 默认模版。当创建 issue 时，若未建立多模版或选择了 Open a regular issue 时，系统会引用该模版。
 
-  - 多模版
+    - 多模版
 
-    将在代码库新建目录：.github/ISSUE_TEMPLATE
+      将在代码库新建目录：.github/ISSUE_TEMPLATE
 
-    该目录下可添加多个 .md 文件作为 issues 模版。当创建 issue 时，系统会展示这些模版供选择。
+      该目录下可添加多个 .md 文件作为 issues 模版。当创建 issue 时，系统会展示这些模版供选择。
 
-  - 自定义模板
+    - 自定义模板
 
-     issues 的默认模版和多模版可同时存在。关于 issues 模版的描述可详见帮助文档：https://help.github.com/articles/manually-creating-a-single-issue-template-for-your-repository/
+      issues 的默认模版和多模版可同时存在，也可以自己定义符合自己需求的模板
 
   - 如何创建模板
 
-    https://help.github.com/en/articles/creating-issue-templates-for-your-repository
+    - 使用github提供的setting设置：https://help.github.com/en/articles/creating-issue-templates-for-your-repository
+
+    - 自己手动创建模板文件：https://help.github.com/articles/manually-creating-a-single-issue-template-for-your-repository/
 
 ### 2. 徽章
 
