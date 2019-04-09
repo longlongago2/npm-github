@@ -4,17 +4,17 @@
 
 ## 背景介绍
 
-> 前端模块化开发大潮：以前的开发模式，代码冗长混杂，组件复用困难，即使提取出可复用插件，往往都是要通过 script 引入js包，往往插件或方法又都暴露在全局，引入太多，往往会带来大概两个问题：<br><br>
-1、没有命名空间，会污染全局变量，<br>
-2、如果我的插件又依赖别人的插件，别人的插件又依赖别人的插件，如此循环，又会面临处理复杂的依赖逻辑关系。<br>
-从利用 CommonJs，requireJs 将前端模块化（解决第一个痛点），再到npm，webpack等自动处理复杂的依赖关系（解决第二个痛点），全面的模块化开发打包全流程管理，从青涩一步步走向成熟，这个过程也衍生出了很多规范！<br><br>
+> 前端模块化开发大潮：以前的开发模式，代码冗长混杂，组件复用困难，即使提取出可复用插件，往往都是要通过 script 引入 js 包，往往插件或方法又都暴露在全局，引入太多，往往会带来大概两个问题：<br><br>
+> 1、没有命名空间，会污染全局变量，<br>
+> 2、如果我的插件又依赖别人的插件，别人的插件又依赖别人的插件，如此循环，又会面临处理复杂的依赖逻辑关系。<br>
+> 从利用 CommonJs，requireJs 将前端模块化（解决第一个痛点），再到 npm，webpack 等自动处理复杂的依赖关系（解决第二个痛点），全面的模块化开发打包全流程管理，从青涩一步步走向成熟，这个过程也衍生出了很多规范！<br><br>
 > 衍生规范：<a href="#1">CommonJs(node.js)</a> --> <a href="#2">AMD(require.js)</a> --> <a href="#3">CMD(seaJS)</a> --> <a href="#4">UMD(兼容 CommonJs, AMD, var)</a><br><br>
-一系列的规范产生和发展，最终形成了今天的格局。随着模块化的深度使用，也让我们探索到底什么样的情况适合作为一个lib输出。<br><br>
-这里列举几种我个人的想法：<br>
-1、与主业务逻辑无关，但又包含很多操作逻辑的富应用，如富文本编辑器之类的<br>
-2、可以提取出来的公共UI组件库，例如element，iview，ant-design等等，这些通用组件都是可以通过传入属性或参数去实例化符合要求的不同形态<br>
-3、utils纯工具库，例如moment，lodash<br>
-。。。
+> 一系列的规范产生和发展，最终形成了今天的格局。随着模块化的深度使用，也让我们探索到底什么样的情况适合作为一个 lib 输出。<br><br>
+> 这里列举几种我个人的想法：<br>
+> 1、与主业务逻辑无关，但又包含很多操作逻辑的富应用，如富文本编辑器之类的<br>
+> 2、可以提取出来的公共 UI 组件库，例如 element，iview，ant-design 等等，这些通用组件都是可以通过传入属性或参数去实例化符合要求的不同形态<br>
+> 3、utils 纯工具库，例如 moment，lodash<br>
+> 。。。
 
 注：
 
@@ -31,7 +31,7 @@ seaJs(CMD 规范)：结合了 CommonJs 的理念和 AMD 的原理的客户端模
 </a><br><br>
 
 <a name="4">
-UMD 规范：首先 UMD 是什么，中文解释就是通用模块定义，兼容 AMD，CommonJS 和全局变量，一统天下。使用 UMD 规范之后，各种规范自动向下兼容。简单来说，良心的 lib 都应该用 umd 规范发布，这样，node 环境；模块化环境（webapck 等预处理工具、requireJs 等）；传统 CDN 环境（全局变量），就都可以使用啦。那么这么好的东西又该怎么玩呢？webpack 针对 lib 模式（webpack 打包有两种模式，runtime 模式和 library 模式：我们平常使用的生产环境的打包，就是 runtime 模式，但是 webpack 还可以针对模块化进行打包，即 lib 模式） 打包时提供了这个选择，以下是原文：
+UMD 规范：首先 UMD 是什么，中文解释就是通用模块定义，兼容 AMD，CommonJS 和全局变量，一统天下。使用 UMD 规范之后，各种规范自动向下兼容。简单来说，良心的 lib 都应该用 umd 规范发布，这样，node 环境；模块化环境（webapck 等预处理工具、requireJs 等）；传统 CDN 环境（全局变量），就都可以使用啦。那么这么好的东西又该怎么玩呢？webpack 针对 lib 模式（webpack 打包有两种模式，runtime 模式和 library 模式：我们平常使用的生产环境的打包，就是 runtime 模式，打包出来是一个自执行函数，但是 webpack 还可以针对模块化进行打包，即 lib 模式，打包会根据配置规则将对象暴露出来） 打包时提供了这个选择，以下是原文：
 
 ```
 output.libraryTarget
@@ -94,7 +94,7 @@ Which format to export the library:
 
 ### 5. Markdown
 
-`markdown:` Markdown 是一门比 html 更简单的标记语言，其主要用于书写工程项目 readme 文档。 [官网](http://www.markdown.cn/) / [基础语法](https://www.jianshu.com/p/191d1e21f7ed)
+`markdown:` Markdown 是一门比 html 更简单的标记语言，其主要用于书写工程项目 readme 文档。 [官网](http://www.markdown.cn/) / [基础语法](https://guides.github.com/features/mastering-markdown/)
 
 ### 6. Typescript
 
@@ -148,37 +148,104 @@ _注：这是旧版，被微软收购后新版已改版_
 
 ## 开发流程
 
-> <a href="#1-1">新建远程仓库并克隆到本地</a> --> <a href="#1-2">初始化项目</a> --> <a href="#1-3">配置脚手架</a> --> <a href="#1-4">组件开发</a> --> <a href="#1-5">单元测试</a> --> <a href="#1-6">配置声明文件</a> --> <a href="#1-7">撰写readme文档</a> --> <a href="#1-8">打包发布</a>
+> <a href="#1-1">新建远程仓库并克隆到本地</a> --> <a href="#1-2">初始化项目</a> --> <a href="#1-3">配置脚手架</a> --> <a href="#1-4">组件开发</a> --> <a href="#1-5">单元测试</a> --> <a href="#1-6">配置声明文件</a> --> <a href="#1-7">撰写 readme 文档</a> --> <a href="#1-8">打包发布</a>
 
 ### <a name="1-1">1. 新建远程仓库并克隆到本地</a>
 
-`Create a new repository`
+`Create a new repository` 创建一个远程仓库
 
-`git clone [url]`
+`git clone [url]` 克隆到本地
+
+![1-1](./assets/1-1.png)
 
 ### <a name="1-2">2. 初始化项目</a>
 
 `npm init`
 
+回答一系列问题后，生成 package.json
+
+![1-2](./assets/1-2.png)
+
+注意：
+
+1. _entry point 非常重要，这是lib作为 node_modules 模块化文件的入口_
+
+2. _package name 有可能会被占用，如果您的包名已经被占用则无法发布。<br>
+有两种方法规避：<br>
+(1) 直接换名字；<br>
+(2) 创建一个带作用域的包名（推荐），例如：@webpack/init（组织），@zhanggl/watermark（用户名） ，创建带作用域的包名 cli 命令如下：_
+
+`npm init --scope=@my-username`
+
+or
+
+`npm init --scope=@my-org`
+
+_3. git repository 一般写你的git代码托管地址，你如果在github创建的远程仓库，这里会自动链接到你的代码库，在npm搜索中体现_
+
+![1-2-1](./assets/1-2-1.png)
+
 ### <a name="1-3">3. 配置脚手架</a>
 
 `npx webpack-cli init`
 
+回答一系列问题，生成一个基础的 webpack.config.js，然后可以根据自己需要添加各种配置和插件！
+
+![1-3](./assets/1-3.png)
+
+webpack 配置注意：
+
+1. _[官网：如何创建一个创建一个 library 配置](https://webpack.docschina.org/guides/author-libraries/)_
+
+2. _关于 lib 打包配置注意：lib 组件中的依赖一定不要打包，否则可能带来严重问题。(使用[webpack externals](https://webpack.docschina.org/configuration/externals/)将依赖外部化。npm 会自动下载lib模块中的依赖，webpack会按照lib依赖关系自行打包，所以不必在lib阶段直接将依赖打包进去，否则如果用户也使用了你lib中的依赖，会造成重复打包，可能造成不可预测的报错)_
+
 ### <a name="1-4">4. 组件开发</a>
 
+一般目录结构：src lib dist tests example
+
+src: 工程代码目录
+
+lib: 模块化打包目录，模块化引入
+
+dist: 传统打包目录，CDN 引入
+
+tests: 测试脚本
+
+example: 使用示例
 
 ### <a name="1-5">5. 单元测试</a>
 
+jest
+
+`npm install --save-dev jest`
+
+`jest --init`
+
+回答一系列问题，创建jest.config.js
+
+![1-5](./assets/1-5.png)
 
 ### <a name="1-6">6. 配置声明文件</a>
 
+.d.ts
 
-### <a name="1-7">7. 撰写readme文档</a>
+### <a name="1-7">7. 撰写 readme 文档</a>
 
+markdown
 
 ### <a name="1-8">8. 打包发布</a>
 
+`npm publish`
 
+注意：
+
+1. 发布之前得先登录npm账号
+
+2. 如果您是再维护新版本，新版本的 package.json version 版本号一定要更改，否则发布不成功!
+
+3. 遵循语义化的版本号命名
+
+4. 打标签例如 latest
 
 ## 其他好玩的事儿
 
