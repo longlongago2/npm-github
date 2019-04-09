@@ -110,7 +110,7 @@ Which format to export the library:
 
 ### 7. Jest
 
-`jest:` 前端单元测试框架。 [官网](https://jestjs.io/zh-Hans/) / [代码示例](https://github.com/longlongago2/react-native-sqlite-helper/blob/master/_tests_/sqliteHelper.test.js)，其他常用测试框架还有[Mocha](https://mochajs.org/)
+`jest:` Jest是 Facebook 的一套开源的 JavaScript 测试框架， 它自动集成了断言、JSDom、覆盖率报告等开发者所需要的所有测试工具，是一款几乎零配置的测试框架。。 [官网](https://jestjs.io/zh-Hans/) / [代码示例](https://github.com/longlongago2/react-native-sqlite-helper/blob/master/_tests_/sqliteHelper.test.js)，其他常用测试框架还有[Mocha](https://mochajs.org/)
 
 - 使用场景：
 
@@ -173,7 +173,7 @@ _注：这是旧版，被微软收购后新版已改版_
 2. _package name 有可能会被占用，如果您的包名已经被占用则无法发布。<br>
 有两种方法规避：<br>
 (1) 直接换名字；<br>
-(2) 创建一个带作用域的包名（推荐），例如：@webpack/init（组织），@zhanggl/watermark（用户名） ，创建带作用域的包名 cli 命令如下：_
+(2) 创建一个带作用域的包名（推荐），例如：@webpack-cli/init（组织），@longlongago2/rm_calendar（用户名） ，创建带作用域的包名 cli 命令如下：_
 
 `npm init --scope=@my-username`
 
@@ -243,11 +243,11 @@ markdown
 
 2. 如果您是再维护新版本，新版本的 package.json version 版本号一定要更改，否则发布不成功!
 
-3. 遵循语义化的版本号命名
+3. [遵循语义化的版本号命名](https://docs.npmjs.com/about-semantic-versioning)
 
-4. 打标签例如 latest
+4. [打标签例如 @next](https://docs.npmjs.com/adding-dist-tags-to-packages)
 
-## 其他好玩的事儿
+## 其他
 
 ### 1. 徽章
 
