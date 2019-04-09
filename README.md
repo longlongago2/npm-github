@@ -94,7 +94,7 @@ Which format to export the library:
 
 ### 5. Markdown
 
-`markdown:` Markdown 是一门比 html 更简单的标记语言，其主要用于书写工程项目 readme 文档。 [官网](http://www.markdown.cn/) / [基础语法](https://guides.github.com/features/mastering-markdown/)
+`markdown:` Markdown 是一门比 html 更简单的标记语言，其主要用于书写工程项目 readme 文档。包含：标题，图片，引用，表格，代码块，有序、无序清单等功能 [官网](http://www.markdown.cn/) / [基础语法](https://guides.github.com/features/mastering-markdown/) / [示例](https://github.com/longlongago2/rm-calendar)
 
 ### 6. Typescript
 
@@ -227,11 +227,15 @@ jest
 
 ### <a name="1-6">6. 配置声明文件</a>
 
-.d.ts
+.d.ts: 一般和js文件同名同级，或者发布到@types，一般IDE会自动识别并智能提示
+
+1. 自己定义的库声明文件一般和原始js文件同名同级：例如jquery.js 对应的就是 jquery.d.ts，放在同一级目录。
+
+2. 强大的第三方库一般会发布到[@types组织](http://definitelytyped.org/)中，以供使用者单独下载：例如 npm install @types/jquery -save 然后你就发现你项目里面多了个node_modules/@types/jquery文件夹。
 
 ### <a name="1-7">7. 撰写 readme 文档</a>
 
-markdown
+markdown：如何安装、使用代码示例、详细api，还可以加效果图，FAQ，Changelog等等
 
 ### <a name="1-8">8. 打包发布</a>
 
