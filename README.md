@@ -44,6 +44,33 @@ Which format to export the library:
 "umd" - Export to AMD, CommonJS2 or as property in root
 ```
 
+```
+// UMD 规范
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // 兼容AMD
+        define(['jquery', 'underscore'], factory);
+    } else if (typeof exports === 'object') {
+        // 兼容Node, CommonJS
+        module.exports = factory(require('jquery'), require('underscore'));
+    } else {
+        // 兼容浏览器全局变量(root 即 window)
+        root.returnExports = factory(root.jQuery, root._);
+    }
+}(this, function ($, _) {
+    //    方法
+    function a(){};    //    私有方法，因为它没被返回 (见下面)
+    function b(){};    //    公共方法，因为被返回了
+    function c(){};    //    公共方法，因为被返回了
+
+    //    暴露公共方法
+    return {
+        b: b,
+        c: c
+    }
+}));
+```
+
 </a><br><br>
 
 ## 名词介绍
