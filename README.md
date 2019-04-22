@@ -4,30 +4,58 @@
 
 ## 背景介绍
 
-> 前端模块化开发大潮：以前的开发模式，代码冗长混杂，组件复用困难，即使提取出可复用插件，往往都是要通过 script 引入 js 包，往往插件或方法又都暴露在全局，引入太多，往往会带来大概两个问题：<br><br>
+> 想想那种场面，随着前端的代码的不断累积，代码冗长混杂，组件复用困难，即使提取出一些插件，往往都是要通过 script 引入 js 包，往往插件或方法又都暴露在全局，而当你引入的东西越来越多，往往都会一些问题：<br><br>
 > 1、没有命名空间，会污染全局变量，<br>
 > 2、如果我的插件又依赖别人的插件，别人的插件又依赖别人的插件，如此循环，又会面临处理复杂的依赖逻辑关系。<br>
-> 从利用 CommonJs，requireJs 将前端模块化（解决第一个痛点），再到 npm，webpack 等自动处理复杂的依赖关系（解决第二个痛点），全面的模块化开发打包全流程管理，从青涩一步步走向成熟，这个过程也衍生出了很多规范！<br><br>
+> 自从nodejs出现，前端的作用越来越大，解决方案也不断被提出，从利用前端模块化（解决作用域的痛点），再到 npm，webpack 等自动处理复杂的依赖关系（解决依赖关系的痛点），全面的模块化开发打包全流程管理，从青涩一步步走向成熟，这个过程也衍生出了很多规范！<br><br>
 > 衍生规范：<a href="#1">CommonJs(node.js)</a> --> <a href="#2">AMD(require.js)</a> --> <a href="#3">CMD(seaJS)</a> --> <a href="#4">UMD(兼容 CommonJs, AMD, var)</a><br><br>
-> 一系列的规范产生和发展，最终形成了今天的格局。随着模块化的深度使用，也让我们探索到底什么样的情况适合作为一个 lib 输出。<br><br>
-> 这里列举几种我个人的想法：<br>
+> 一系列的规范产生和发展，最终形成了今天的格局。随着打包工具的的深度使用，node_modules lib依赖包的开发也变得越来越重要，也让我们探索到底什么样的情况适合作为一个 lib 输出。<br><br>
+> 例如：<br>
 > 1、与主业务逻辑无关，但又包含很多操作逻辑的富应用，如富文本编辑器之类的<br>
-> 2、可以提取出来的公共 UI 组件库，例如 element，iview，ant-design 等等，这些通用组件都是可以通过传入属性或参数去实例化符合要求的不同形态<br>
-> 3、utils 纯工具库，例如 moment，lodash<br>
-> 。。。
+> 2、可以提取出来的公共 UI 组件库，例如 element，iview，ant-design 等等，这些通用组件都是可以通过传入属性或参数去实例化符合要求的不同形态，这些都是通过lib输出，作为依赖包去安装后使用<br>
+> 3、utils 纯工具库，例如 moment，lodash等等<br>
 
 注：
 
 <a name="1">
 CommonJs规范： 它是服务端模块化加载规范，由Node推广使用，只能依赖node环境执行。纳尼？？？这么好的东西，是不是就对传统前端开发来说没用了呢？其实，webpack就是使用这个规范去打包依赖，因为 webpack 本身就是依赖 node 环境开发出来的服务端预处理工具。标志性语法：require('module-name') / module.exports，这个 require 和 AMD 的 require 不同，下面会讲到！
+
+```
+// 加载
+require("module");
+require("../file.js");
+// 导出
+exports.doStuff = function() {};
+module.exports = someValue;
+```
 </a><br><br>
 
 <a name="2">
 requireJs(AMD 规范)：如果说 CommonJs 的出现解决了服务端模块化的问题，那么 require.js(AMD 规范)的出现就是主要解决客户端模块化的问题。（？？？解释上面留的疑问）那么它与 CommonJs 的 require 具体又有什么关系呢？应该说他们什么关系都没有，唯一可能的关系就是传统前端工程师看见 node 工程师可以使用 commonjs 模块化加载眼红，大家都用 js，为什么你行，我不行，所以就发明出来一种适合客户端模块化加载的规范，CommonJs 依赖的是 node 环境的加载，而 requireJs 就是纯客户端浏览器加载的一种规范，它可以直接在浏览器执行，而 commonjs 就不行（但是可以用于 webpack 预处理工具打包构建之后，就可以在浏览器运行啦）。
+
+```
+// 导出
+define("module", ["dep1", "dep2"], function(d1, d2) {
+  return someExportedValue;
+});
+// 加载
+require(["module", "../file"], function(module, file) { /* ... */ });
+```
 </a><br><br>
 
 <a name="3">
 seaJs(CMD 规范)：结合了 CommonJs 的理念和 AMD 的原理的客户端模块化加载规范，CMD 特别就在于，体现了 CommonJs 按需加载的理念，摒弃了 AMD 的依赖前置，这是一种过渡态，用的不多，具体怎么体现的语法可以自己了解。
+
+```
+define(function(require, exports, module) {
+  // 加载
+  var $ = require('jquery');
+  var Spinning = require('./spinning');
+  // 导出
+  exports.doSomething = ...
+  module.exports = ...
+})
+```
 </a><br><br>
 
 <a name="4">
@@ -71,7 +99,7 @@ Which format to export the library:
 }));
 ```
 
-</a><br><br>
+</a><br>
 
 ## 名词介绍
 
